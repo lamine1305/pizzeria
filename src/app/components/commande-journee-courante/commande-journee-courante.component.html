@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light background-color">
+    <span class="navbar-brand mb-0 h1">
+        <p class="font-weight-bold" style="background-color: gray;">Commandes de la journée</p>
+        </span>
+  </nav>
+
+  <div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+          <tr [ngClass]="{enTete:true}">
+            <th scope="col">NUMERO</th>
+            <th scope="col">HEURE</th>
+            <th scope="col">NOM</th>
+            <th scope="col">PRIX</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr 
+          *ngFor="let item  of commandesJourneeList" 
+          >
+            <td>{{item.id}}</td>
+            <td>{{item.heure}}</td>
+            <td>{{item.nom}}</td>
+            <td>{{item.prix}}</td>
+            <td>{{item.statutPreparation}}</td>
+            <td>{{item.payee}}</td>
+          </tr>
+    </table>
+    </div>

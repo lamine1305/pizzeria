@@ -1,0 +1,39 @@
+<marquee>
+<h1>BIENVENU A PIZZA KING</h1>
+</marquee>
+<div class="container-fluid"> 
+  <p style="background-color: darkgoldenrod;"> COMMANDES </p>   
+</div>
+<div class="container-fluid">
+<table class="table table-striped">
+    <thead>
+      <tr [ngClass]="{enTete:true}">
+        <th scope="col">ID</th>
+        <th scope="col">NOM</th>
+        <th scope="col">PRIX</th>
+        <th scope="col">ETAT</th>
+        <th scope="col">PAYEE</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr 
+      *ngFor="let item  of commandesList" 
+      >
+        <td [ngClass]="{
+          'termine':item.termine,
+          'aFaire':item.aFaire,
+          'enCours':item.enCours
+          }" >{{item.id}}</td>
+        <td>{{item.nom}}</td>
+        <td>{{item.prix}}</td>
+        <td>{{item.statutPreparation}}</td>
+        <td>{{item.payee}}</td>
+        <td><button type="button" (click)= "prendreCommande(item.id)" class="btn btn-primary" [disabled]=!item.aFaire>En cours</button></td>
+        <td><button type="button" (click)= "terminerCommande(item.id)" class="btn btn-success" [disabled]=!item.enCours>Terminer</button></td>
+      </tr>
+     
+</table>
+</div>

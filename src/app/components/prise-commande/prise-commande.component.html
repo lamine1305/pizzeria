@@ -1,0 +1,80 @@
+<div class="container-fluid"> 
+<h1 style="background-color: burlywood;"> PIZZAS </h1>   
+
+<table class="table table-striped table-dark">
+  <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">NOM</th>    
+        <th scope="col">PRIX</th>
+        <th scope="col">PETITE</th>
+        <th scope="col">MOYENNE</th>
+        <th scope="col">GRANDE</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pizzasList">
+        <td>{{item.id}}</td>
+        <td>{{item.nom}}</td>
+        <td>{{item.prix}}</td>  
+        <td>
+          <select class="form-select" size="1" aria-label="size 1 select example">
+            <option value="0">0</option>
+            <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              </select>
+        </td>
+   
+        <td>
+          <select class="form-select" size="1" aria-label="size 2 select example">
+            <option value="0">0</option>
+            <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              </select>
+        </td>
+        <td>
+          <select class="form-select" size="1" aria-label="size 1 select example">
+            <option value="0">0</option>
+            <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              </select>
+        </td>
+      </tr>
+  </table>
+  <h1 style="background-color: rgb(109, 71, 22);"> DESSERTS </h1>   
+
+  <table class="table table-striped table-dark">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">NOM</th>
+          <th scope="col">PRIX</th>
+          <th scope="col">QUANTITE</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of dessertsList">
+          <td>{{item.id}}</td>
+          <td>{{item.nom}}</td>
+          <td>{{item.prix}}</td>  
+          <td>
+            <select class="form-select" size="1" aria-label="size 1 select example">
+              <option value="0">0</option>
+              <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                </select>
+          </td>
+        </tr>
+    </table>
+    <div>
+      <button type="button" (click)= "prendreCommande()" class="btn btn-success btn-lg btn-block">Commander</button>
+      <button type="button" class="btn btn-warning btn-lg btn-block" [routerLink]="['']" >Retour</button>
+
+    </div>
+</div>
