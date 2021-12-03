@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PriseCommandeService } from 'src/app/services/prise-commande.service';
 
 @Component({
   selector: 'app-gestion-menu',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gestion-menu.component.css']
 })
 export class GestionMenuComponent implements OnInit {
-
-  constructor() { }
+  pizzasList : any;
+  constructor(private priseCommandeService : PriseCommandeService) { }
 
   ngOnInit() {
-  }
-
+    this.getAllPizzasLists();
+  }  
+  
+  getAllPizzasLists(){
+    this.pizzasList= this.priseCommandeService.getAllPizzasList();
+    console.log(this.pizzasList)
+}
 }

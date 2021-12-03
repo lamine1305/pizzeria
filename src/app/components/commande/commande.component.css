@@ -1,12 +1,18 @@
 .aFaire{
-background-color:red;
+background-color :dodgerblue;
 }
 
 .enCours{
-    background-color:rgb(0, 77, 128);
+    background-color:goldenrod;
 }
 
-.termine{
+.terminee{
     background-color: green;
 }
+
+.annulee{
+    background-color: darkred;
+}
+
+
 

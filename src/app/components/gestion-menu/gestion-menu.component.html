@@ -1,1 +1,37 @@
-<p>gestion-menu works!</p>
+<marquee>
+    <h1>BIENVENU A PIZZA KING</h1>
+    </marquee>
+    <div class="container"> 
+      <p style="background-color: rgb(23, 11, 184);">GESTION DU MENU </p>   
+    </div>
+
+    <div class="container">
+          <div class="container-fluid"> 
+      <td><button type="button" (click)= "ajouterPizza()" class="btn btn-success">Pizza(+)</button></td>
+    </div>
+    <table class="table table-striped">
+      
+        <thead>
+          <tr [ngClass]="{enTete:true}">
+            <th scope="col">ID</th>
+            <th scope="col">NOM</th>
+            <th scope="col">PRIX</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+    
+          </tr>
+        </thead>
+        <tbody>
+          <tr 
+          *ngFor="let item  of pizzasList" 
+          >
+            <td>{{item.id}}</td>
+            <td>{{item.nom}}</td>
+            <td>{{item.prix}}</td>
+            <td><button type="button" (click)= "modifier(item.id)" class="btn btn-primary">modifier</button></td>
+            <td><button type="button" (click)= "supprimer(item.id)" class="btn btn-warning">supprimer</button></td>
+          </tr>
+         
+    </table>
+    
+    </div>

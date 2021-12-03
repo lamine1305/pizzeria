@@ -14,7 +14,9 @@ export class CommandeService {
       payee:"NON",
       enCours:false,
       aFaire : false,
-      termine : true
+      terminee : true,
+      annulee : false
+
   },
   {
     id : 1,
@@ -24,7 +26,8 @@ export class CommandeService {
     payee : "OUI",
     enCours : true,
     aFaire : false,
-    termine : false
+    terminee : false,
+    annulee : false
   },
   {
     id : 2,
@@ -34,7 +37,8 @@ export class CommandeService {
     payee : "NON",
     enCours : false,
     aFaire : false,
-    termine : true
+    terminee : true,
+    annulee : false
   },
   {
     id : 3,
@@ -44,17 +48,20 @@ export class CommandeService {
     payee : "NON",
     enCours:true,
     aFaire : false,
-    termine : false
+    terminee : false,
+    annulee : false
+
   },
   {
     id : 4,
     nom : "4 FROMAGES",
     prix : 8.0,
-    statutPreparation:"A FAIRE",
-    payee:"OUI",
+    statutPreparation:"ANNULEE",
+    payee:"NON",
     enCours:false,
-    aFaire : true,
-    termine : false
+    aFaire : false,
+    terminee : false,
+    annulee : true
   },
   ]
 
@@ -67,7 +74,8 @@ export class CommandeService {
 
   prendreCommandes(idCommande: any) {
     this.commandesList[idCommande].enCours=true;
-    this.commandesList[idCommande].termine=false;
+    this.commandesList[idCommande].annulee=false;
+    this.commandesList[idCommande].terminee=false;
     this.commandesList[idCommande].aFaire=false;
     this.commandesList[idCommande].statutPreparation="EN COURS";
     return this.commandesList;
@@ -75,10 +83,21 @@ export class CommandeService {
   }
 
   terminerCommandes(idCommande: any) {
-    this.commandesList[idCommande].termine=true;
+    this.commandesList[idCommande].terminee=true;
+    this.commandesList[idCommande].annulee=false;
     this.commandesList[idCommande].enCours=false;
     this.commandesList[idCommande].aFaire=false;
     this.commandesList[idCommande].statutPreparation="PRETE";
     return this.commandesList;
   }
+
+  annulerCommandes(idCommande: any) {
+    this.commandesList[idCommande].annulee=true;
+    this.commandesList[idCommande].terminee=false;
+    this.commandesList[idCommande].enCours=false;
+    this.commandesList[idCommande].aFaire=false;
+    this.commandesList[idCommande].statutPreparation="ANNULEE";
+    return this.commandesList;
+  }
+  
 }

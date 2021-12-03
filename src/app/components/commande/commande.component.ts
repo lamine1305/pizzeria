@@ -26,4 +26,9 @@ export class CommandeComponent implements OnInit {
     console.log(idCommande)
     this.commandeService.terminerCommandes(idCommande);
   }
+
+  annulerCommande(idCommande){
+    console.log(idCommande)
+    this.commandeService.annulerCommandes(idCommande);
+  }
 }

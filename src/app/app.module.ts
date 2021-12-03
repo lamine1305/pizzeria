@@ -14,6 +14,7 @@ import { PriseCommandeChapeuaComponent } from './components/prise-commande-chape
 import { GestionMenuComponent } from './components/gestion-menu/gestion-menu.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { AythentificationComponent } from './components/aythentification/aythentification.component';
 
 @NgModule({
   declarations: [
@@ -27,21 +28,22 @@ import { FormsModule } from '@angular/forms';
     CommandePriseRecapComponent,
     PriseCommandeChapeuaComponent,
     GestionMenuComponent,
-    NavbarComponent
+    NavbarComponent,
+    AythentificationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-      {path :'',component: JourneeExploitationComponent },
+      {path :'JourneeExploitationComponent',component: JourneeExploitationComponent },
       {path :'priseCommande',component: PriseCommandeChapeuaComponent },
       {path :'commandeEnCours',component: CommandeComponent},
       {path :'commandeJournee',component: CommandeJourneeCouranteComponent },
       {path :'cloture',component: ClotureJourneeExploitationComponent },
       {path :'bilan/:id',component: BilanComponent },
       {path :'menu',component: GestionMenuComponent },
-
-      {path :'**',component: JourneeExploitationComponent }
+      
+      {path :'**',component: AythentificationComponent }
     ])
   ],
   providers: [],

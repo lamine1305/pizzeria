@@ -1,10 +1,16 @@
-<marquee>
-<h1>BIENVENU A PIZZA KING</h1>
-</marquee>
-<div class="container-fluid"> 
+<div class="container"> 
+<img src="../assets/images/pizza1.png" width="160" heeight="160"/>
+<img src="../assets/images/pizza2.png" width="160" heeight="160"/>
+<img src="../assets/images/pizza3.png" width="160" heeight="160"/>
+<img src="../assets/images/pizza4.png" width="160" heeight="160"/>
+<img src="../assets/images/pizza5.png" width="160" heeight="160"/>
+<img src="../assets/images/pizza6.png" width="160" heeight="160"/>
+<img src="../assets/images/pizza7.png" width="160" heeight="160"/>
+</div>
+<div class="container"> 
   <p style="background-color: darkgoldenrod;"> COMMANDES </p>   
 </div>
-<div class="container-fluid">
+<div class="container">
 <table class="table table-striped">
     <thead>
       <tr [ngClass]="{enTete:true}">
@@ -20,12 +26,13 @@
     </thead>
     <tbody>
       <tr 
-      *ngFor="let item  of commandesList" 
+      *ngFor="let item of commandesList" 
       >
         <td [ngClass]="{
-          'termine':item.termine,
+          'terminee':item.terminee,
           'aFaire':item.aFaire,
-          'enCours':item.enCours
+          'enCours':item.enCours,
+          'annulee':item.annulee
           }" >{{item.id}}</td>
         <td>{{item.nom}}</td>
         <td>{{item.prix}}</td>
@@ -33,6 +40,8 @@
         <td>{{item.payee}}</td>
         <td><button type="button" (click)= "prendreCommande(item.id)" class="btn btn-primary" [disabled]=!item.aFaire>En cours</button></td>
         <td><button type="button" (click)= "terminerCommande(item.id)" class="btn btn-success" [disabled]=!item.enCours>Terminer</button></td>
+        <td><button type="button" (click)= "annulerCommande(item.id)" class="btn btn-danger" [disabled]=!item.enCours>Annuler</button></td>
+
       </tr>
      
 </table>
